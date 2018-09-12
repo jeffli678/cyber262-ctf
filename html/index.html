@@ -1,0 +1,35 @@
+<title>Cyber262 CTF</title>
+
+Your team token: <input id = 'token' size = 10>
+
+<script>
+function embed_token()
+{
+    token = document.getElementById('token').value;
+    if(!token){
+        alert('Please input your team token!');
+        return false;
+    }
+    document.getElementById('token_1').value = token;
+    document.getElementById('token_2').value = token;
+    document.getElementById('token_3').value = token;
+}
+</script>
+
+<form action="/status" method="post" onsubmit="return embed_token();" enctype="multipart/form-data">
+    <input id = 'token_1' name = 'token' type='hidden' value = ''>
+    <input type="submit" value="Check Status" />
+</form>
+
+<form action="/upload" method="post" onsubmit="return embed_token();" enctype="multipart/form-data">
+    Problem to submit (1-5): <input name = 'idx' type='text' value = '' size = 10>
+    Select a file: <input type="file" name="upload" />
+    <input id = 'token_2' name = 'token' type='hidden' value = ''>
+    <input type="submit" value="Submit" />
+</form>
+
+<form action="/download" method="post" onsubmit="return embed_token();" enctype="multipart/form-data">
+    <input type="submit" value="Download Next Problem" />
+    <input id = 'token_3' name = 'token' type='hidden' value = ''>
+
+</form>
