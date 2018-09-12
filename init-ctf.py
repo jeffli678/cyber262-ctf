@@ -8,7 +8,7 @@ def make_token(name):
     return hash[:8]
 
 def delete_submissions():
-    os.system('rm ./submissions/*')
+    os.system('rm ./submissions/*.zip')
 
 team_names = open('team-names.txt').read().splitlines()
 team_info = open('team-info.txt', 'w')
