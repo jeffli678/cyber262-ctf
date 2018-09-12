@@ -116,7 +116,6 @@ def upload():
 
     # actually save the file
     try:
-        
         upload.save(full_save_path)
     except:
         output = 'Fail to save your uploaded file. This is a server bug. Most likely your submission fails. Please contact your TA. Thanks!'
