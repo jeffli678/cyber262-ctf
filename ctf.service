@@ -1,0 +1,10 @@
+[Unit]
+Description=cyber262-ctf
+
+[Service]
+ExecStart=/root/cyber262-ctf/run.sh
+Type=simple
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
