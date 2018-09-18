@@ -43,8 +43,6 @@ def check_progress(token):
     print(output)
     return (output, team_name, solved_problem)
 
-def make_submission(token, problem_idx, f):
-    _, team_name, solved_problem = check_progress(token)
     
 @route('')
 @route('/')
@@ -92,8 +90,8 @@ def upload():
         return output
     
     upload = request.POST['upload']
-    original_name, ext = os.path.splitext(upload.filename)
-    if not ext == '.zip':
+    _, ext = os.path.splitext(upload.filename)
+    if not ext.lower() == '.zip':
         output = 'You can only submit zip files. Please create a zip archive and try again.'
         return output
 
