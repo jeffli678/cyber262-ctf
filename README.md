@@ -19,7 +19,7 @@ Challenges are named c1.zip all the way up to c5.zip. The system can automatical
 
 ## Start server
 
-python main.py. 
+./run.sh
 
 The http server listens localhost:26200
 
