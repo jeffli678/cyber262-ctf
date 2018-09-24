@@ -53,10 +53,6 @@ Input token, click "check status"
 
 Input token, put the index of the problem to submit, choose the zip file to submit, click "submit"
 
-<<<<<<< HEAD
 ### Download the next challenge
-=======
-## Download the next challenge
->>>>>>> 1c8495d20f3d501975765c32715834628ddab8fe
 
 Input token, click "download the next challenge"
