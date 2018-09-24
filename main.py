@@ -2,7 +2,7 @@ import os
 import itertools
 import json
 import datetime
-from bottle import route, run, template, static_file, post, request
+from bottle import route, run, template, static_file, post, request, auth_basic
 import logging
 import shutil
 
@@ -128,6 +128,49 @@ def upload():
         return output
 
     output = 'Congrats! Your submission is uploaded. Please proceed to the next problem.'
+    return output
+
+def check(user, pw):
+    # Check user/pw here and return True/False
+    return user == 'cyber262' and pw == 'cyber262-admin'
+
+def token_from_name(team_name):
+    for token in teams:
+        if teams[token][1] == team_name:
+            return token
+    return ''
+
+def sort_and_print(section_teams, section):
+    output = 'Section %d</br>' % section
+    sorted_teams = sorted(section_teams, key = section_teams.get, reverse = True)
+    for token in sorted_teams:
+        output += (token + '\t' + str(section_teams[token]) + '</br>' )
+    output += '<br>'
+    return output
+
+@route('/ctf-status')
+@auth_basic(check)
+def ctf_status():
+
+    output = ''
+    for section in [1, 2]:
+        section_teams = {}
+        if not os.path.exists(('team-names-%d.txt' % section)):
+            continue
+
+        team_names = open('team-names-%d.txt' % section).read().splitlines()
+        for team_name in team_names:
+            team_name = team_name.strip()
+            if team_name.startswith('test_team'):
+                continue
+            token = token_from_name(team_name)
+            if token == '':
+                print('%s not found' % team_name)
+                continue
+            section_teams[token] = teams[token][0]
+
+        output += sort_and_print(section_teams, section)
+    
     return output
 
 def update_team_info():

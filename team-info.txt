@@ -1,5 +1,21 @@
-#solved_problem, token, team_name
-0, 2cf19680, team1
-0, be194ead, team2
-0, 42046729, team3
-0, f8465c3f, tamfad dfad
+#id, current_problem, token, team_name
+0, e79d0612, test_team
+0, 8b5247f7, ISTeam
+0, e99e4ee1, Hacker Hunks
+0, 35f4501c, Squab
+0, 11906cad, Canvas Crew
+0, 29065e8e, The Blobfish
+0, 2f2167d3, NTJ
+0, 01e8a9af, ctf team
+0, 3560a6eb, Snap Hax
+0, 1874647a, GLB
+0, 5002fd36, test_team_2
+0, 326a398f, Nightmare Sentinel
+0, 8e73936a, On The Run
+0, cf0c73bc, /dev/null
+0, d0c5796b, The Keystrokers
+0, ff0c8027, ELI5
+0, f79f89cb, pi
+0, d55edb64, E
+0, f8e4b733, Git Rekt
+0, 98a94424, JA
