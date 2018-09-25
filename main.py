@@ -46,7 +46,13 @@ def check_progress(token):
 def check(user, pw):
     # Check user/pw here and return True/False
     return user == 'cyber262' and pw == 'cyber262-admin'
-    
+
+def init_system():
+    global max_problem
+    max_problem = count_output()
+    read_team_info()
+    print_team_info()
+
 @route('')
 @route('/')
 @route('/index.html')
@@ -63,6 +69,13 @@ def check_status():
 @auth_basic(check)
 def show_admin():
     return static_file('admin.html', root = './html') 
+
+@route('/reload-system')
+@auth_basic(check)
+def reload_system():
+    init_system()
+    return 'system reloaded'
+
 
 @route('/collect-submissions')
 @auth_basic(check)
@@ -217,10 +230,7 @@ def count_output():
     return count
 
 def main():
-    global max_problem
-    max_problem = count_output()
-    read_team_info()
-    print_team_info()
+    init_system()
     run(host='localhost', port = 26200)
 
 
