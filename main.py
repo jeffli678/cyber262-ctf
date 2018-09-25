@@ -49,7 +49,8 @@ def check(user, pw):
 
 def init_system():
     global max_problem
-    max_problem = count_output()
+    max_problem = count_challenges()
+    print('there are %d challenges' % max_problem)
     read_team_info()
     print_team_info()
 
@@ -221,12 +222,11 @@ def update_team_info():
     os.remove('team-info-backup.txt')
 
 
-def count_output():
+def count_challenges():
     count = 0
     for file in os.listdir('./challenges'):
         if file.endswith('.zip'):
             count += 1
-    print(count)
     return count
 
 def main():
