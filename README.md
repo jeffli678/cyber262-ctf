@@ -33,6 +33,10 @@ If you want the http server to directly listen on all interfaces (thus publicly 
 
 To deploy a TLS certificate, I recommand using Nginx with Let's Encrypt. 
 
+## Admin page
+
+Navigate to /admin, use cyber262:cyber262-admin to authenticate. 
+
 ## Check global status
 
 Navigate to /ctf-status, use cyber262:cyber262-admin to authenticate. 
@@ -40,6 +44,8 @@ Navigate to /ctf-status, use cyber262:cyber262-admin to authenticate.
 ## Collect submission
 
 Submissions are automatically collected into the /submissions folder. The file name is token-index-time.zip. 
+
+You can also click the "Download Submissions" button in admin page to download all submissions.
 
 ## For Teams
 

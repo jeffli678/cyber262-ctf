@@ -43,6 +43,9 @@ def check_progress(token):
     print(output)
     return (output, team_name, solved_problem)
 
+def check(user, pw):
+    # Check user/pw here and return True/False
+    return user == 'cyber262' and pw == 'cyber262-admin'
     
 @route('')
 @route('/')
@@ -55,6 +58,29 @@ def check_status():
     token = request.forms.get('token')
     output, _, _ = check_progress(token)
     return output
+
+@route('/admin')
+@auth_basic(check)
+def show_admin():
+    return static_file('admin.html', root = './html') 
+
+@route('/collect-submissions')
+@auth_basic(check)
+def collect_submissions():
+
+    curr_time = datetime.datetime.now()
+    curr_time_str = curr_time.strftime('%Y%m%d-%H:%M:%S')
+
+    root_path = './snapshots'
+    zip_name = 'submissions-snapshot-%s' % curr_time_str
+    zip_path = os.path.join(root_path, zip_name)
+    
+    shutil.make_archive(zip_path, 'zip', 'submissions')
+
+    zip_name_with_suffix = zip_name + '.zip'
+
+    return static_file(zip_name_with_suffix, root = root_path, \
+                        download = zip_name_with_suffix)
 
 @post('/download')
 def down_latest():
@@ -130,10 +156,6 @@ def upload():
     output = 'Congrats! Your submission is uploaded. Please proceed to the next problem.'
     return output
 
-def check(user, pw):
-    # Check user/pw here and return True/False
-    return user == 'cyber262' and pw == 'cyber262-admin'
-
 def token_from_name(team_name):
     for token in teams:
         if teams[token][1] == team_name:
@@ -199,7 +221,7 @@ def main():
     max_problem = count_output()
     read_team_info()
     print_team_info()
-    run(host='localhost', port=26200)
+    run(host='localhost', port = 26200)
 
 
 if __name__ == '__main__':
