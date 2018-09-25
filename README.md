@@ -1,5 +1,7 @@
 # cyber262-ctf
-a framework for automating the cyber262 in-class CTF
+A framework for automating the cyber262 in-class CTF.
+
+This program organizes the CTF at team level. To maintain team member information, the user needs a seperate spreadsheet. 
 
 ## Initialization
 
@@ -51,6 +53,6 @@ Input token, click "check status"
 
 Input token, put the index of the problem to submit, choose the zip file to submit, click "submit"
 
-## Download the next challenge
+### Download the next challenge
 
 Input token, click "download the next challenge"
