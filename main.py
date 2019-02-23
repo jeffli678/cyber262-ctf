@@ -83,7 +83,7 @@ def reload_system():
 def collect_submissions():
 
     curr_time = datetime.datetime.now()
-    curr_time_str = curr_time.strftime('%Y%m%d-%H:%M:%S')
+    curr_time_str = curr_time.strftime('%Y%m%d-%H-%M-%S')
 
     root_path = './snapshots'
     zip_name = 'submissions-snapshot-%s' % curr_time_str
@@ -141,7 +141,7 @@ def upload():
         return output
 
     curr_time = datetime.datetime.now()
-    curr_time_str = curr_time.strftime('%Y%m%d-%H:%M:%S')
+    curr_time_str = curr_time.strftime('%Y%m%d-%H-%M-%S')
 
     file_save_name = '%s-%d-%s.zip' % (token, idx, curr_time_str)
     root_path = './submissions'
