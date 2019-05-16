@@ -13,7 +13,7 @@ If you want to delete all existing submissions (BE CAREFUL!), answer "Y" twice.
 
 ## Token delivery
 
-A token is generated for each team inside team-info.txt, give these to the teams.
+A token is generated for each team inside team-info.txt, give these to the teams. 
 
 ## Create challenges
 
