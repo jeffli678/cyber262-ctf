@@ -3,7 +3,7 @@ Description=cyber262-ctf
 
 [Service]
 ExecStart=/root/cyber262-ctf/run.sh
-ExecStop=kill -9 `cat /root/cyber262-ctf/run.pid`
+ExecStop=/bin/kill -9 `cat /root/cyber262-ctf/run.pid`
 Type=simple
 RemainAfterExit=yes
 
